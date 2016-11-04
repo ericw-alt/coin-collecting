@@ -25,21 +25,17 @@ var Game = {
 		ctx.textAlign = "center";
 		ctx.font = "bold 40px Ubuntu";
 		ctx.strokeStyle = "black";
-		ctx.lineWidth = 4;
-		ctx.strokeText("ericw31415.github.io", c.width / 2, 100);
 		ctx.fillStyle = "white";
-		ctx.fillText("ericw31415.github.io", c.width / 2, 100);
+		ctx.borderWidth = 2;
+		ctx.borderText("ericw31415.github.io", c.width / 2, 100);
 		
 		//Draw start button
-		ctx.rect(c.width / 2 - 125, c.height / 2 - 50, 250, 100);
-		ctx.stroke();
 		ctx.fillStyle = "blue";
-		ctx.fillRect(c.width / 2 - 125, c.height / 2 - 50, 250, 100);
+		ctx.borderRect(c.width / 2 - 125, c.height / 2 - 50, 250, 100);
 		
 		//Draw start button text
 		ctx.textBaseline = "middle";
-		ctx.strokeText("START", c.width / 2, c.height / 2);
 		ctx.fillStyle = "white";
-		ctx.fillText("START", c.width / 2, c.height / 2);
+		ctx.borderText("START", c.width / 2, c.height / 2);
 	}
 };
