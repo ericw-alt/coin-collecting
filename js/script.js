@@ -1,22 +1,30 @@
-var c, ctx;
+c = document.getElementById("game");
+ctx = c.getContext("2d");
+resize();
 
-function init() {
-	c = document.getElementById("game");
-	ctx = c.getContext("2d");
-	resize();
-}
-
-document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resize);
 
 function resize() {
-	c.width = window.innerWidth;
-	c.height = window.innerHeight;
+	newWidth =  window.innerWidth;
+	newHeight =  window.innerHeight;
+	newAspectRatio = newWidth / newHeight;
 	
+	//Choose whether to pillarbox or letterbox
+	if (newAspectRatio > Game.aspectRatio) {
+		newWidth = newHeight * Game.aspectRatio;
+		c.width = newWidth;
+		c.height = newHeight;
+	} else {
+		newHeight = newHeight / Game.aspectRatio;
+		c.width = newWidth;
+		c.height = newHeight;
+	}
+
 	Game.draw();
 }
 
 var Game = {
+	aspectRatio: 16 / 9,
 	fps: 30,
 	draw: function() {
 		//Draw title
