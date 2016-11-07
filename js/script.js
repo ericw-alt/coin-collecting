@@ -1,7 +1,12 @@
-c = document.getElementById("game");
-ctx = c.getContext("2d");
-resize();
+var c, ctx;
 
+function init() {
+	c = document.getElementById("game");
+	ctx = c.getContext("2d");
+	resize();
+}
+
+document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resize);
 
 function resize() {
