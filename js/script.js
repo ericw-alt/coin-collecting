@@ -10,19 +10,17 @@ document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resize);
 
 function resize() {
-	newWidth =  window.innerWidth;
-	newHeight =  window.innerHeight;
-	newAspectRatio = newWidth / newHeight;
+	var newWidth =  window.innerWidth;
+	var newHeight =  window.innerHeight;
+	var newAspectRatio = newWidth / newHeight;
 	
-	//Choose whether to pillarbox or letterbox
+	//Pillarboxing and letterboxing
 	if (newAspectRatio > Game.aspectRatio) {
-		newWidth = newHeight * Game.aspectRatio;
-		c.width = newWidth;
+		c.width = newHeight * Game.aspectRatio;
 		c.height = newHeight;
 	} else {
-		newHeight = newHeight / Game.aspectRatio;
 		c.width = newWidth;
-		c.height = newHeight;
+		c.height = newWidth / Game.aspectRatio;
 	}
 
 	Game.draw();
