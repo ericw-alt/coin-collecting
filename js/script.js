@@ -45,4 +45,4 @@ function resize() {
 	Game.draw();
 }
 
-resize();
+setTimeout(resize, 1000);
