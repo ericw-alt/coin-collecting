@@ -1,30 +1,7 @@
-var c, ctx;
+var c = document.getElementById("game");
+var ctx = c.getContext("2d");
 
-function init() {
-	c = document.getElementById("game");
-	ctx = c.getContext("2d");
-	resize();
-}
-
-document.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resize);
-
-function resize() {
-	var newWidth =  window.innerWidth;
-	var newHeight =  window.innerHeight;
-	var newAspectRatio = newWidth / newHeight;
-	
-	//Pillarboxing and letterboxing
-	if (newAspectRatio > Game.aspectRatio) {
-		c.width = newHeight * Game.aspectRatio;
-		c.height = newHeight;
-	} else {
-		c.width = newWidth;
-		c.height = newWidth / Game.aspectRatio;
-	}
-
-	Game.draw();
-}
 
 var Game = {
 	aspectRatio: 16 / 9,
@@ -50,3 +27,22 @@ var Game = {
 		ctx.borderText("START", c.width / 2, c.height / 2);
 	}
 };
+
+function resize() {
+	var newWidth =  window.innerWidth;
+	var newHeight =  window.innerHeight;
+	var newAspectRatio = newWidth / newHeight;
+	
+	//Pillarboxing and letterboxing
+	if (newAspectRatio > Game.aspectRatio) {
+		c.width = newHeight * Game.aspectRatio;
+		c.height = newHeight;
+	} else {
+		c.width = newWidth;
+		c.height = newWidth / Game.aspectRatio;
+	}
+
+	Game.draw();
+}
+
+resize();
