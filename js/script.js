@@ -11,20 +11,21 @@ var Game = {
 		ctx.fillStyle = "#7B7B7B";
 		ctx.fillRect(0, 0, c.width, c.height);
 		ctx.textAlign = "center";
-		ctx.font = "bold 40px Ubuntu";
+		ctx.font = "bold " + (50 * Game.scaleFactor) + "px Ubuntu";
 		ctx.strokeStyle = "black";
 		ctx.fillStyle = "white";
-		ctx.borderWidth = 2;
-		ctx.borderText("ericw31415.github.io", c.width / 2, 100);
+		ctx.borderWidth = 2 * Game.scaleFactor;
+		ctx.borderText("ericw31415.github.io", c.width / 2, 125 * Game.scaleFactor);
 		
 		//Draw start button
 		ctx.fillStyle = "blue";
-		ctx.borderRect(c.width / 2 - 125, c.height / 2 - 50, 250, 100);
+		ctx.borderRect(c.width / 2 - 125 * Game.scaleFactor, c.height / 2 + 50 * Game.scaleFactor, 250 * Game.scaleFactor, 100 * Game.scaleFactor);
 		
 		//Draw start button text
 		ctx.textBaseline = "middle";
 		ctx.fillStyle = "white";
-		ctx.borderText("START", c.width / 2, c.height / 2);
+		ctx.font = "bold " + (40 * Game.scaleFactor) + "px Ubuntu";
+		ctx.borderText("START", c.width / 2, c.height / 2 + 100 * Game.scaleFactor);
 	}
 };
 
@@ -41,7 +42,8 @@ function resize() {
 		c.width = newWidth;
 		c.height = newWidth / Game.aspectRatio;
 	}
-
+	
+	Game.scaleFactor = c.width / 1200;
 	Game.draw();
 }
 
