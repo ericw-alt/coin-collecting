@@ -2,6 +2,7 @@ var c = document.getElementById("game");
 var ctx = c.getContext("2d");
 
 window.addEventListener("resize", resize);
+document.addEventListener("contextmenu", e => e.preventDefault());
 
 var Game = {
 	aspectRatio: 16 / 9,

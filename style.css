@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	overflow: hidden;
 }
 
 #loading {
@@ -9,6 +10,8 @@ body {
 	font-family: Ubuntu;
 	text-align: center;
 	position: absolute;
+	user-select: none;
+	cursor: default;
 	
 	/*Center text block on page*/
 	top: 50%;
