@@ -48,6 +48,7 @@ function resize() {
 	Game.draw();
 }
 
-syncSetTimeout(resize, 1000, function() {
+sleep(1000).then(() => {
+	resize();
 	toggleVisible("loading", "game");
 });

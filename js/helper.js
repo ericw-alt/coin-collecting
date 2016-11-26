@@ -10,17 +10,8 @@ function toggleVisible() {
 	}
 }
 
-function syncSetTimeout(func, ms, callback) {
-	(function sync(done) {
-		if (!done) {
-			setTimeout(function() {
-				eval("(" + func + ")();");
-				sync(true);
-			}, ms);
-			return;
-		}
-		eval("(" + callback + ")();");
-	})();
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 //Extend CanvasRenderingContext2D
